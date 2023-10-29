@@ -11,4 +11,5 @@ This is to search for images by a database of keywords. It also has an option to
 
 It uses SQLite database rather than the original idea of using a csv file.
 
-https://img.shields.io/badge/any_text-you_like-blue
+![Static Badge](https://img.shields.io/badge/any_text-you_like-blue)
+
