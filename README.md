@@ -12,5 +12,10 @@ This is to search for images by a database of keywords. It also has an option to
 It uses SQLite database rather than the original idea of using a csv file.
 
 ![GitHub issues](https://img.shields.io/github/issues/jamster3000/ImageSearch)
+![Downloads](https://img.shields.io/github/downloads/jamster3000/ImageSearch/total)
+![Last Commit](https://img.shields.io/github/last-commit/jamster3000/ImageSearch)
+![GitHub Stars](https://img.shields.io/github/stars/jamster3000/ImageSearch?style=social)![Code Size](https://img.shields.io/github/languages/code-size/jamster3000/ImageSearch)
+
+
 
 
