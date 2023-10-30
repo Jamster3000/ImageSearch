@@ -19,11 +19,8 @@ For a more detailed usage of the app see the wiki (https://github.com/Jamster300
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE https://www.gnu.org/licenses/gpl-3.0.en.html - see the LICENSE https://github.com/Jamster3000/ImageSearch/blob/master/LICENSE file for details.
 
+
 ![GitHub issues](https://img.shields.io/github/issues/jamster3000/ImageSearch)
-![Downloads](https://img.shields.io/github/downloads/jamster3000/ImageSearch/total)
 ![Last Commit](https://img.shields.io/github/last-commit/jamster3000/ImageSearch)
 ![GitHub Stars](https://img.shields.io/github/stars/jamster3000/ImageSearch?style=social)![Code Size](https://img.shields.io/github/languages/code-size/jamster3000/ImageSearch)
-
-
-
 
