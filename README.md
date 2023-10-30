@@ -11,5 +11,6 @@ This is to search for images by a database of keywords. It also has an option to
 
 It uses SQLite database rather than the original idea of using a csv file.
 
-![Static Badge](https://img.shields.io/badge/This_is_a_test-blue)
+![GitHub issues](https://img.shields.io/github/issues/jamster3000/ImageSearch)
+
 
