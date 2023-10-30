@@ -1,7 +1,6 @@
 
 
-![IMG_20231028_121416_NR~3](https://github.com/Jamster3000/ImageSearch/assets/148760154/76c8d1da-f2ff-47b5-9247-b56e10ac4d5b)
-(draft of icon/logo)
+![searchMagnifyingGlass](https://github.com/Jamster3000/ImageSearch/assets/148760154/b062c4b1-6369-4e42-9b23-ef6411e04b77)
 
 ###In progress
 
@@ -23,4 +22,3 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE https://www.gnu.or
 ![GitHub issues](https://img.shields.io/github/issues/jamster3000/ImageSearch)
 ![Last Commit](https://img.shields.io/github/last-commit/jamster3000/ImageSearch)
 ![GitHub Stars](https://img.shields.io/github/stars/jamster3000/ImageSearch?style=social)![Code Size](https://img.shields.io/github/languages/code-size/jamster3000/ImageSearch)
-
