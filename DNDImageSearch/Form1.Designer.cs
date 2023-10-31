@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainWindow));
             this.searchTitle = new System.Windows.Forms.Label();
             this.querySearchBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.addButton = new System.Windows.Forms.Button();
+            this.emptyDatabaseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchTitle
@@ -110,18 +112,34 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // emptyDatabaseButton
+            // 
+            this.emptyDatabaseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.emptyDatabaseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emptyDatabaseButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.emptyDatabaseButton.Location = new System.Drawing.Point(9, 9);
+            this.emptyDatabaseButton.Name = "emptyDatabaseButton";
+            this.emptyDatabaseButton.Size = new System.Drawing.Size(88, 91);
+            this.emptyDatabaseButton.TabIndex = 6;
+            this.emptyDatabaseButton.Text = "X";
+            this.emptyDatabaseButton.UseCompatibleTextRendering = true;
+            this.emptyDatabaseButton.UseVisualStyleBackColor = true;
+            this.emptyDatabaseButton.Click += new System.EventHandler(this.emptyDatabaseButton_Click);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(717, 438);
+            this.Controls.Add(this.emptyDatabaseButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.querySearchBox);
             this.Controls.Add(this.searchTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainWindow";
             this.Text = "Image Search";
             this.ResumeLayout(false);
@@ -137,6 +155,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button emptyDatabaseButton;
     }
 }
 

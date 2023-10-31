@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.noImagesLabel = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
+            this.downloadedLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // noImagesLabel
@@ -57,6 +59,18 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // downloadedLabel
+            // 
+            this.downloadedLabel.AutoSize = true;
+            this.downloadedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.downloadedLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.downloadedLabel.Location = new System.Drawing.Point(202, 9);
+            this.downloadedLabel.Name = "downloadedLabel";
+            this.downloadedLabel.Size = new System.Drawing.Size(391, 38);
+            this.downloadedLabel.TabIndex = 12;
+            this.downloadedLabel.Text = "Successfully Downloaded";
+            this.downloadedLabel.Visible = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -64,8 +78,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(801, 450);
+            this.Controls.Add(this.downloadedLabel);
             this.Controls.Add(this.noImagesLabel);
             this.Controls.Add(this.backButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.Text = "Image Results";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -78,5 +94,6 @@
 
         private System.Windows.Forms.Label noImagesLabel;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label downloadedLabel;
     }
 }

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace DNDImageSearch
 {
@@ -21,18 +14,17 @@ namespace DNDImageSearch
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //TODO: Get the last id in the database and set that as default id adding 1 to the number
             sqliteData.openDatabase();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            (new mainWindow()).Show(); this.Hide();
+            DiscardButton(sender, e);
         }
 
         private void imagePathTextBox_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) 
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 e.Effect = DragDropEffects.Copy;
             }
@@ -64,20 +56,13 @@ namespace DNDImageSearch
         }
 
         private void saveButton_Click(object sender, EventArgs e)
-        {//TODO: Need to clear the three inputs when data saved
-         //TODO: Need to have a label to remember what the last set of keywords and id was.
-         //TODO: Actull save the ID and allow the user to change it. This would mean that it needs to read the last ID saved and add one nuumber to it.
-         //TODO: Get the RGB colours from dndbeyond and work with that into the design of the app
-            string id = idBox.Text;
+        {
+            //TODO: Get the RGB colours from dndbeyond and work with that into the design of the app
+            //TODO: Make a suitable Icon for the app.
             string imageFile = imagePathTextBox.Text;
             string userKeywords = keywordsTextBox.Text;
-            Console.WriteLine(userKeywords);
-            if (id == "" ^ id == " ")
-            {
-                updateLabel.Text = "valid image ID Required";
-                updateLabel.Visible = true;
-            }
-            else if (!File.Exists(imageFile))
+
+            if (!File.Exists(imageFile))
             {
                 updateLabel.Text = "Invalid image Path";
                 updateLabel.Visible = true;
@@ -97,21 +82,21 @@ namespace DNDImageSearch
                 updateLabel.Text = "Saved Successfully!";
                 updateLabel.Visible = true;
 
-                //
-                idBox.Text = "";
+                //store the previous input for the user to see and remember
+                previousImageLabel.Text += imageFile;
+                previousKeywordLabel.Text += userKeywords;
+
+                //Empty the textboxes
                 imagePathTextBox.Text = "";
                 keywordsTextBox.Text = "";
+                previewBox.Image = null;
+
+                //focus the id textbox or whatever the top input is
+                imagePathTextBox.Focus();
+
+                sqliteData.openDatabase();
+                int lastId = sqliteData.lastId();
             }
-        }
-
-        private void idBox_Enter(object sender, EventArgs e)
-        {
-            updateLabel.Visible = false;
-        }
-
-        private void imagePathTextBox_Enter(object sender, EventArgs e)
-        {
-            updateLabel.Visible = false;
         }
 
         private void keywordsTextBox_Enter(object sender, EventArgs e)
@@ -145,11 +130,33 @@ namespace DNDImageSearch
 
         private void DiscardButton(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Your unsaved data will be lost. Discard?", "Discard", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (result == DialogResult.Yes) 
+            string imagePathText = imagePathTextBox.Text;
+            string keywordsText = keywordsTextBox.Text;
+
+            if (imagePathText == "" && keywordsText == "")
             {
-                button1_Click(sender, e);
+                (new mainWindow()).Show(); this.Hide();
             }
+            else
+            {
+                DialogResult result = MessageBox.Show("Your unsaved data will be lost. Discard?", "Discard", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (result == DialogResult.Yes)
+                {
+                    (new mainWindow()).Show(); this.Hide();
+                }
+            }
+        }
+
+        private void imagePathTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                previewBox.Image = System.Drawing.Image.FromFile(imagePathTextBox.Text);
+            }
+            catch (System.ArgumentException)
+            { }
+            catch (System.IO.FileNotFoundException)
+            { }
         }
     }
 }

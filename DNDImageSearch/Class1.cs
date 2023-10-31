@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Dapper;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using Dapper;
 
 namespace DNDImageSearch
 {
@@ -14,7 +15,6 @@ namespace DNDImageSearch
             conn = new SQLiteConnection("Data Source=imageLibrary.db");
             conn.Open();
         }
-
         public void CreateImagesTable()
         {
             if (conn == null || conn.State != ConnectionState.Open)
@@ -23,11 +23,37 @@ namespace DNDImageSearch
             }
 
             conn.Execute(@"
-                CREATE TABLE IF NOT EXISTS Images (
-                    id INTEGER PRIMARY KEY,
-                    filename TEXT,
-                    keywords TEXT
-                )");
+        CREATE TABLE IF NOT EXISTS Images (
+            id INTEGER PRIMARY KEY,
+            filename TEXT,
+            keywords TEXT
+        )");
+        }
+
+        public List<string> getKeywords(string imagePath)
+        {
+            List<string> keywords = new List<string>();
+
+            string query = "SELECT Keywords FROM Images WHERE Filename = @Filename";
+
+            using (SQLiteCommand command = new SQLiteCommand(query, conn))
+            {
+                command.Parameters.AddWithValue("@Filename", imagePath);
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string keyowrdsString = reader["Keywords"].ToString();
+                        string[] imageKeywords = keyowrdsString.Split(',');
+
+                        foreach (string keyword in imageKeywords)
+                        {
+                            keywords.Add(keyword.Trim());
+                        }
+                    }
+                }
+            }
+            return keywords;
         }
 
         public void insertData(string imageFile, string keywords)
@@ -61,6 +87,14 @@ namespace DNDImageSearch
                 throw new InvalidOperationException("Database connection is not open.");
             }
             conn.Execute("DELETE FROM Images");
+        }
+        public int lastId()
+        {
+            using (var conn = new SQLiteConnection("Data Source=image_library.db"))
+            {
+                conn.Open();
+                return conn.Query<int>("SELECT last_insert_rowid()").FirstOrDefault();
+            }
         }
     }
 
