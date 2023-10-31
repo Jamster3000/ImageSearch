@@ -9,8 +9,8 @@ This is to search for images by a database of keywords. It also has an option to
 It uses SQLite database rather than the original idea of using a csv file.
 
 ## usage
-
-To run this you will have to compile the code files first (https://github.com/Jamster3000/ImageSearch/tree/master/DNDImageSearch). There will be an executabe for this later along the line.
+To use this program take a look at the first release (for windows). Just download the exe file and execute.
+https://github.com/Jamster3000/ImageSearch/releases/tag/v0.4.0
 
 For a more detailed usage of the app see the wiki (https://github.com/Jamster3000/ImageSearch/wiki)
 
