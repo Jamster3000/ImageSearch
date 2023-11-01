@@ -65,26 +65,3 @@ namespace DNDImageSearch
         public string keywords { get; set; }
     }
 }
-
-
-
-
-/*
-using System;
-using System.Threading.Tasks;
-
-class Program
-{
-    static async Task Main()
-    {
-        await MyAsyncMethod();
-    }
-
-    static async Task MyAsyncMethod()
-    {
-        await Task.Delay(1000); // Asynchronous operation
-        Console.WriteLine("Async method complete.");
-    }
-}
-
-*/
