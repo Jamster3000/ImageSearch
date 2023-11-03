@@ -35,6 +35,7 @@
             this.imagePathLabel = new System.Windows.Forms.Label();
             this.keywordsLabel = new System.Windows.Forms.Label();
             this.sizeLabel = new System.Windows.Forms.Label();
+            this.successLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.largePreviewBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +72,7 @@
             this.downloadButton.Text = "Download";
             this.downloadButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // imagePathLabel
             // 
@@ -108,12 +110,23 @@
             this.sizeLabel.TabIndex = 17;
             this.sizeLabel.Text = "Size: ";
             // 
+            // successLabel
+            // 
+            this.successLabel.AutoSize = true;
+            this.successLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.successLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.successLabel.Location = new System.Drawing.Point(329, 9);
+            this.successLabel.Name = "successLabel";
+            this.successLabel.Size = new System.Drawing.Size(0, 32);
+            this.successLabel.TabIndex = 18;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.successLabel);
             this.Controls.Add(this.sizeLabel);
             this.Controls.Add(this.keywordsLabel);
             this.Controls.Add(this.imagePathLabel);
@@ -136,5 +149,6 @@
         private System.Windows.Forms.Label imagePathLabel;
         private System.Windows.Forms.Label keywordsLabel;
         private System.Windows.Forms.Label sizeLabel;
+        private System.Windows.Forms.Label successLabel;
     }
 }
