@@ -44,6 +44,7 @@
             this.previewBox = new System.Windows.Forms.PictureBox();
             this.previousImageLabel = new System.Windows.Forms.Label();
             this.previousKeywordLabel = new System.Windows.Forms.Label();
+            this.underline = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,8 +52,8 @@
             // 
             this.addTitle.AutoSize = true;
             this.addTitle.BackColor = System.Drawing.Color.Transparent;
-            this.addTitle.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTitle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.addTitle.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTitle.ForeColor = System.Drawing.Color.White;
             this.addTitle.Location = new System.Drawing.Point(307, 9);
             this.addTitle.Name = "addTitle";
             this.addTitle.Size = new System.Drawing.Size(157, 80);
@@ -63,7 +64,7 @@
             // 
             this.imagePathLabel.AutoSize = true;
             this.imagePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imagePathLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.imagePathLabel.ForeColor = System.Drawing.Color.White;
             this.imagePathLabel.Location = new System.Drawing.Point(13, 138);
             this.imagePathLabel.Name = "imagePathLabel";
             this.imagePathLabel.Size = new System.Drawing.Size(164, 36);
@@ -74,7 +75,7 @@
             // 
             this.keywordsLabel.AutoSize = true;
             this.keywordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keywordsLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.keywordsLabel.ForeColor = System.Drawing.Color.White;
             this.keywordsLabel.Location = new System.Drawing.Point(12, 251);
             this.keywordsLabel.Name = "keywordsLabel";
             this.keywordsLabel.Size = new System.Drawing.Size(162, 38);
@@ -85,6 +86,7 @@
             // 
             this.imagePathTextBox.AllowDrop = true;
             this.imagePathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imagePathTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.imagePathTextBox.Location = new System.Drawing.Point(199, 144);
             this.imagePathTextBox.Name = "imagePathTextBox";
             this.imagePathTextBox.Size = new System.Drawing.Size(246, 30);
@@ -97,6 +99,7 @@
             // keywordsTextBox
             // 
             this.keywordsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keywordsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.keywordsTextBox.Location = new System.Drawing.Point(199, 259);
             this.keywordsTextBox.Name = "keywordsTextBox";
             this.keywordsTextBox.Size = new System.Drawing.Size(247, 30);
@@ -109,7 +112,7 @@
             this.imageDialogeButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.imageDialogeButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.imageDialogeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageDialogeButton.Location = new System.Drawing.Point(451, 144);
+            this.imageDialogeButton.Location = new System.Drawing.Point(451, 142);
             this.imageDialogeButton.Name = "imageDialogeButton";
             this.imageDialogeButton.Size = new System.Drawing.Size(22, 34);
             this.imageDialogeButton.TabIndex = 4;
@@ -121,38 +124,55 @@
             // 
             // saveButton
             // 
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.saveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.saveButton.FlatAppearance.BorderSize = 2;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(671, 392);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(117, 46);
             this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.MouseLeave += new System.EventHandler(this.saveButton_MouseLeave);
+            this.saveButton.MouseHover += new System.EventHandler(this.saveButton_MouseHover);
             // 
             // backButton
             // 
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(1, -1);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 59);
             this.backButton.TabIndex = 1;
             this.backButton.Text = "◄";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // discardButton
             // 
+            this.discardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.discardButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.discardButton.FlatAppearance.BorderSize = 2;
+            this.discardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.discardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discardButton.ForeColor = System.Drawing.Color.White;
             this.discardButton.Location = new System.Drawing.Point(12, 392);
             this.discardButton.Name = "discardButton";
             this.discardButton.Size = new System.Drawing.Size(201, 46);
             this.discardButton.TabIndex = 6;
             this.discardButton.Text = "Discard";
-            this.discardButton.UseVisualStyleBackColor = true;
+            this.discardButton.UseVisualStyleBackColor = false;
             this.discardButton.Click += new System.EventHandler(this.DiscardButton);
+            this.discardButton.MouseLeave += new System.EventHandler(this.discardButton_MouseLeave);
+            this.discardButton.MouseHover += new System.EventHandler(this.discardButton_MouseHover);
             // 
             // imageToolTip
             // 
@@ -164,7 +184,7 @@
             // 
             this.updateLabel.AutoSize = true;
             this.updateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.updateLabel.ForeColor = System.Drawing.Color.White;
             this.updateLabel.Location = new System.Drawing.Point(294, 392);
             this.updateLabel.Name = "updateLabel";
             this.updateLabel.Size = new System.Drawing.Size(282, 36);
@@ -185,7 +205,7 @@
             // 
             this.previousImageLabel.AutoSize = true;
             this.previousImageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previousImageLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.previousImageLabel.ForeColor = System.Drawing.Color.White;
             this.previousImageLabel.Location = new System.Drawing.Point(181, 177);
             this.previousImageLabel.Name = "previousImageLabel";
             this.previousImageLabel.Size = new System.Drawing.Size(90, 22);
@@ -196,19 +216,32 @@
             // 
             this.previousKeywordLabel.AutoSize = true;
             this.previousKeywordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previousKeywordLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.previousKeywordLabel.ForeColor = System.Drawing.Color.White;
             this.previousKeywordLabel.Location = new System.Drawing.Point(181, 292);
             this.previousKeywordLabel.Name = "previousKeywordLabel";
             this.previousKeywordLabel.Size = new System.Drawing.Size(90, 22);
             this.previousKeywordLabel.TabIndex = 16;
             this.previousKeywordLabel.Text = "Previous: ";
             // 
+            // underline
+            // 
+            this.underline.AutoSize = true;
+            this.underline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.underline.Enabled = false;
+            this.underline.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.2F);
+            this.underline.Location = new System.Drawing.Point(318, 85);
+            this.underline.Name = "underline";
+            this.underline.Size = new System.Drawing.Size(104, 7);
+            this.underline.TabIndex = 17;
+            this.underline.Text = "                                                  ";
+            // 
             // addDataWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.underline);
             this.Controls.Add(this.previousKeywordLabel);
             this.Controls.Add(this.previousImageLabel);
             this.Controls.Add(this.previewBox);
@@ -248,5 +281,6 @@
         private System.Windows.Forms.PictureBox previewBox;
         private System.Windows.Forms.Label previousImageLabel;
         private System.Windows.Forms.Label previousKeywordLabel;
+        private System.Windows.Forms.Label underline;
     }
 }

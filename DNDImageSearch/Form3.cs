@@ -21,6 +21,7 @@ namespace DNDImageSearch
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            //makes sure all the images are removed from the grid as it will have to add them again, this solves the issue of repeated images
             foreach (Control control in Controls.OfType<PictureBox>().ToList())
             {
                 Controls.Remove(control);

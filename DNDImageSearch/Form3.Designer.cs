@@ -38,7 +38,7 @@
             // 
             this.noImagesLabel.AutoSize = true;
             this.noImagesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noImagesLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.noImagesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.noImagesLabel.Location = new System.Drawing.Point(200, 190);
             this.noImagesLabel.Name = "noImagesLabel";
             this.noImagesLabel.Size = new System.Drawing.Size(399, 36);
@@ -48,13 +48,14 @@
             // 
             // backButton
             // 
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(0, 0);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 59);
-            this.backButton.TabIndex = 11;
+            this.backButton.TabIndex = 1;
             this.backButton.Text = "◄";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -63,7 +64,7 @@
             // 
             this.downloadedLabel.AutoSize = true;
             this.downloadedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downloadedLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.downloadedLabel.ForeColor = System.Drawing.Color.White;
             this.downloadedLabel.Location = new System.Drawing.Point(202, 9);
             this.downloadedLabel.Name = "downloadedLabel";
             this.downloadedLabel.Size = new System.Drawing.Size(391, 38);
@@ -76,7 +77,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(801, 450);
             this.Controls.Add(this.downloadedLabel);
             this.Controls.Add(this.noImagesLabel);

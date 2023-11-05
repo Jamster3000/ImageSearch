@@ -41,15 +41,17 @@
             // 
             // backButton
             // 
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(2, 1);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 59);
-            this.backButton.TabIndex = 12;
+            this.backButton.TabIndex = 1;
             this.backButton.Text = "◄";
-            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // largePreviewBox
@@ -63,22 +65,28 @@
             // 
             // downloadButton
             // 
+            this.downloadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.downloadButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.downloadButton.FlatAppearance.BorderSize = 2;
+            this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.downloadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downloadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.downloadButton.Location = new System.Drawing.Point(536, 392);
+            this.downloadButton.ForeColor = System.Drawing.Color.White;
+            this.downloadButton.Location = new System.Drawing.Point(536, 383);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(252, 46);
-            this.downloadButton.TabIndex = 14;
+            this.downloadButton.Size = new System.Drawing.Size(252, 55);
+            this.downloadButton.TabIndex = 2;
             this.downloadButton.Text = "Download";
             this.downloadButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.UseVisualStyleBackColor = false;
             this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
+            this.downloadButton.MouseLeave += new System.EventHandler(this.downloadButton_MouseLeave);
+            this.downloadButton.MouseHover += new System.EventHandler(this.downloadButton_MouseHover);
             // 
             // imagePathLabel
             // 
             this.imagePathLabel.AutoSize = true;
             this.imagePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imagePathLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.imagePathLabel.ForeColor = System.Drawing.Color.White;
             this.imagePathLabel.Location = new System.Drawing.Point(518, 67);
             this.imagePathLabel.MaximumSize = new System.Drawing.Size(280, 0);
             this.imagePathLabel.Name = "imagePathLabel";
@@ -90,7 +98,7 @@
             // 
             this.keywordsLabel.AutoSize = true;
             this.keywordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keywordsLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.keywordsLabel.ForeColor = System.Drawing.Color.White;
             this.keywordsLabel.Location = new System.Drawing.Point(518, 212);
             this.keywordsLabel.MaximumSize = new System.Drawing.Size(280, 0);
             this.keywordsLabel.Name = "keywordsLabel";
@@ -102,7 +110,7 @@
             // 
             this.sizeLabel.AutoSize = true;
             this.sizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sizeLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.sizeLabel.ForeColor = System.Drawing.Color.White;
             this.sizeLabel.Location = new System.Drawing.Point(518, 328);
             this.sizeLabel.MaximumSize = new System.Drawing.Size(280, 0);
             this.sizeLabel.Name = "sizeLabel";
@@ -124,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.successLabel);
             this.Controls.Add(this.sizeLabel);

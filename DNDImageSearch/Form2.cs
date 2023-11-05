@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -157,6 +158,26 @@ namespace DNDImageSearch
             { }
             catch (System.IO.FileNotFoundException)
             { }
+        }
+
+        private void saveButton_MouseHover(object sender, EventArgs e)
+        {
+            saveButton.FlatAppearance.BorderColor = Color.FromArgb(255, 28, 34, 38);
+        }
+
+        private void saveButton_MouseLeave(object sender, EventArgs e)
+        {
+            saveButton.FlatAppearance.BorderColor = Color.FromArgb(255, 209, 0, 0);
+        }
+
+        private void discardButton_MouseHover(object sender, EventArgs e)
+        {
+            discardButton.FlatAppearance.BorderColor = Color.FromArgb(255, 28, 34, 38);
+        }
+
+        private void discardButton_MouseLeave(object sender, EventArgs e)
+        {
+            discardButton.FlatAppearance.BorderColor = Color.FromArgb(255, 209, 0, 0);
         }
     }
 }

@@ -56,7 +56,7 @@ namespace DNDImageSearch
             if (result == DialogResult.Yes)
             {
                 sqlite.ClearImagesTable();
-                MessageBox.Show("All adta removed.");
+                MessageBox.Show("All Data Removed.", "Completed");
             }
         }
     }
