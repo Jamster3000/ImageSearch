@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace DNDImageSearch
 {
@@ -11,6 +12,8 @@ namespace DNDImageSearch
         public SQLiteData sqliteData = new SQLiteData();
         public userChosenKeywords keywords;
         public static Form3 currentInstance;
+        string sourceFilePath;
+        string destFolderPath = "Downloads";
 
         public Form3(userChosenKeywords keywords)
         {
@@ -21,6 +24,7 @@ namespace DNDImageSearch
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            Button downloadButton;
             //makes sure all the images are removed from the grid as it will have to add them again, this solves the issue of repeated images
             foreach (Control control in Controls.OfType<PictureBox>().ToList())
             {
@@ -41,7 +45,7 @@ namespace DNDImageSearch
                 int xRow = 1;
 
                 foreach (var img in results)
-                { 
+                {
                     PictureBox pictureBox = new PictureBox();
                     pictureBox.Location = new Point(pictureX, pictureY); // Set the X and Y coordinates
                     pictureBox.Size = new Size(pictureSizeX, pictureSizeY);//Set the X and Y size
@@ -58,17 +62,55 @@ namespace DNDImageSearch
                         pictureX = 10;
                         pictureY += 247;
                     }
-                    //mouse hover over
-                    pictureBox.MouseEnter += (s, eventAgrs) =>
+
+                    PictureBox overlay = new PictureBox();
+
+                    //Download Button
+                    downloadedLabel.Visible = false;
+                    sourceFilePath = img.Filename;
+
+                    //Create download button
+                    downloadButton = new Button();
+                    downloadButton.Name = "download button";
+                    downloadButton.Text = "⤓";
+                    downloadButton.Size = new Size(40, 40);
+                    downloadButton.Location = pictureBox.Location;
+                    downloadButton.ForeColor = Color.White;
+                    downloadButton.Font = new Font("Microsoft Sans Serif", 24, FontStyle.Bold);
+
+                    Controls.Add(downloadButton);
+                    downloadButton.BringToFront();
+
+                    //download click event
+                    downloadButton.Click += (t, EventArgs) =>
                     {
-                        downloadedLabel.Visible = false;
-                        pictureBox.Size = new Size(pictureSizeX + 10, pictureSizeY + 10);
+                        //Exactly the same code if the download button was pressed in form4
+                        try
+                        {
+                            string downloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                            string destFolderPath = Path.Combine(downloadFolder, "Downloads");
+
+                            if (!Directory.Exists(destFolderPath))
+                            {
+                                Directory.CreateDirectory(destFolderPath);
+                            }
+
+                            string destFilePath = Path.Combine(destFolderPath, Path.GetFileName(sourceFilePath));
+
+                            File.Copy(sourceFilePath, destFilePath, true);
+                            downloadedLabel.Text = "'Download' Success";
+                            downloadedLabel.Visible = true;
+                        }
+                        catch
+                        {
+                            downloadedLabel.Text = "Couldn't 'Download' Image";
+                            downloadedLabel.Visible = true;
+                        }
                     };
 
                     pictureBox.MouseLeave += (s, EventArgs) =>
                     {
                         downloadedLabel.Visible = false;
-                        pictureBox.Size = new Size(pictureSizeX - 10, pictureSizeY - 10);
                     };
 
                     //filename
@@ -91,6 +133,10 @@ namespace DNDImageSearch
             }
         }
 
+        private void Form3_MouseEnter(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void backButton_Click(object sender, EventArgs e)
         {

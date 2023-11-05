@@ -79,8 +79,8 @@
             this.downloadButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.downloadButton.UseVisualStyleBackColor = false;
             this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
+            this.downloadButton.MouseEnter += new System.EventHandler(this.downloadButton_MouseEnter);
             this.downloadButton.MouseLeave += new System.EventHandler(this.downloadButton_MouseLeave);
-            this.downloadButton.MouseHover += new System.EventHandler(this.downloadButton_MouseHover);
             // 
             // imagePathLabel
             // 

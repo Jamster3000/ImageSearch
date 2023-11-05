@@ -138,8 +138,8 @@
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.MouseEnter += new System.EventHandler(this.saveButton_MouseEnter);
             this.saveButton.MouseLeave += new System.EventHandler(this.saveButton_MouseLeave);
-            this.saveButton.MouseHover += new System.EventHandler(this.saveButton_MouseHover);
             // 
             // backButton
             // 
@@ -171,8 +171,8 @@
             this.discardButton.Text = "Discard";
             this.discardButton.UseVisualStyleBackColor = false;
             this.discardButton.Click += new System.EventHandler(this.DiscardButton);
+            this.discardButton.MouseEnter += new System.EventHandler(this.discardButton_MouseEnter);
             this.discardButton.MouseLeave += new System.EventHandler(this.discardButton_MouseLeave);
-            this.discardButton.MouseHover += new System.EventHandler(this.discardButton_MouseHover);
             // 
             // imageToolTip
             // 

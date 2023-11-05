@@ -64,14 +64,14 @@ namespace DNDImageSearch
             }
         }
 
-        private void downloadButton_MouseHover(object sender, EventArgs e)
-        {
-            downloadButton.FlatAppearance.BorderColor = Color.FromArgb(255, 28, 34, 38);
-        }
-
         private void downloadButton_MouseLeave(object sender, EventArgs e)
         {
             downloadButton.FlatAppearance.BorderColor = Color.FromArgb(255, 209, 0, 0);
+        }
+
+        private void downloadButton_MouseEnter(object sender, EventArgs e)
+        {
+            downloadButton.FlatAppearance.BorderColor = Color.FromArgb(255, 28, 34, 38);
         }
     }
 }
