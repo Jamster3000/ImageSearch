@@ -58,8 +58,6 @@ namespace DNDImageSearch
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //TODO: Get the RGB colours from dndbeyond and work with that into the design of the app
-            //TODO: Make a suitable Icon for the app.
             string imageFile = imagePathTextBox.Text;
             string userKeywords = keywordsTextBox.Text;
 
@@ -84,8 +82,8 @@ namespace DNDImageSearch
                 updateLabel.Visible = true;
 
                 //store the previous input for the user to see and remember
-                previousImageLabel.Text += imageFile;
-                previousKeywordLabel.Text += userKeywords;
+                previousImageLabel.Text = "Previous: " + imageFile;
+                previousKeywordLabel.Text = "Previous: " + userKeywords;
 
                 //Empty the textboxes
                 imagePathTextBox.Text = "";
