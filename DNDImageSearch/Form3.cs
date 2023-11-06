@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace DNDImageSearch
@@ -12,6 +11,7 @@ namespace DNDImageSearch
         public SQLiteData sqliteData = new SQLiteData();
         public userChosenKeywords keywords;
         public static Form3 currentInstance;
+        private Point previousScrollPosition = new Point(0, 0);
         string sourceFilePath;
         string destFolderPath = "Downloads";
 
@@ -42,25 +42,23 @@ namespace DNDImageSearch
                 int pictureY = 89;
                 int pictureSizeX = 220;
                 int pictureSizeY = 220;
-                int xRow = 1;
+                int xRow = 0;
 
                 foreach (var img in results)
                 {
                     PictureBox pictureBox = new PictureBox();
-                    pictureBox.Location = new Point(pictureX, pictureY); // Set the X and Y coordinates
-                    pictureBox.Size = new Size(pictureSizeX, pictureSizeY);//Set the X and Y size
+                    pictureBox.Location = new Point(pictureX, pictureY);
+                    pictureBox.Size = new Size(pictureSizeX, pictureSizeY);
                     pictureBox.Image = System.Drawing.Image.FromFile(img.Filename);
 
-                    //increase x by 209 for next element in row
-                    pictureX += 209;
-                    xRow += 1;
+                    pictureX += pictureSizeX + 10; // Adjust for the gap between columns
+                    xRow++;
 
-                    if (xRow == 4)
+                    if (xRow == 3) // Create a new row after 3 columns
                     {
-                        //move onto the next column
                         xRow = 0;
                         pictureX = 10;
-                        pictureY += 247;
+                        pictureY += pictureSizeY + 10; // Adjust for the gap between rows
                     }
 
                     PictureBox overlay = new PictureBox();
@@ -118,9 +116,10 @@ namespace DNDImageSearch
 
                     pictureBox.Click += (s, EventArgs) =>
                     {
+                        previousScrollPosition = this.AutoScrollPosition;
                         string fileName = (string)((PictureBox)s).Tag;
-
-                        (new Form4(fileName)).Show(); this.Hide();
+                        
+                        (new Form4(fileName, previousScrollPosition)).Show(); this.Hide();
                     };
 
                     pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -133,19 +132,16 @@ namespace DNDImageSearch
             }
         }
 
-        private void Form3_MouseEnter(object sender, EventArgs e)
+        protected override void OnActivated(EventArgs e)
         {
-            throw new NotImplementedException();
-        }
+            base.OnActivated(e);
 
+            // Restore the scroll position when Form3 is activated
+            this.AutoScrollPosition = new Point(-previousScrollPosition.X, -previousScrollPosition.Y);
+        }
         private void backButton_Click(object sender, EventArgs e)
         {
             (new mainWindow()).Show(); this.Hide();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

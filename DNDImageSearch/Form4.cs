@@ -8,9 +8,10 @@ namespace DNDImageSearch
     public partial class Form4 : Form
     {
         public SQLiteData sqliteData = new SQLiteData();
+        private Point previousScrollPosition;
         string sourceFilePath;
         string destFolderPath = "Downloads";
-        public Form4(string fileName)
+        public Form4(string fileName, Point scrollPosition)
         {
             InitializeComponent();
             sqliteData.openDatabase();
@@ -29,6 +30,8 @@ namespace DNDImageSearch
             string imageWidth = image.Width.ToString();
             string imageHeight = image.Height.ToString();
             sizeLabel.Text += imageWidth + " X " + imageHeight;
+
+            previousScrollPosition = scrollPosition;
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -37,6 +40,7 @@ namespace DNDImageSearch
             if (Form3.currentInstance != null)
             {
                 Form3.currentInstance.Show();
+                Form3.currentInstance.AutoScrollPosition = new Point(-previousScrollPosition.X, -previousScrollPosition.Y);
                 this.Hide();
             }
         }
