@@ -134,13 +134,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.successLabel);
             this.Controls.Add(this.sizeLabel);
             this.Controls.Add(this.keywordsLabel);
             this.Controls.Add(this.imagePathLabel);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.largePreviewBox);
-            this.Controls.Add(this.backButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4";
             ((System.ComponentModel.ISupportInitialize)(this.largePreviewBox)).EndInit();

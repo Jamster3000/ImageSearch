@@ -46,84 +46,89 @@ namespace DNDImageSearch
 
                 foreach (var img in results)
                 {
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Location = new Point(pictureX, pictureY);
-                    pictureBox.Size = new Size(pictureSizeX, pictureSizeY);
-                    pictureBox.Image = System.Drawing.Image.FromFile(img.Filename);
-
-                    pictureX += pictureSizeX + 10; // Adjust for the gap between columns
-                    xRow++;
-
-                    if (xRow == 3) // Create a new row after 3 columns
+                    try
                     {
-                        xRow = 0;
-                        pictureX = 10;
-                        pictureY += pictureSizeY + 10; // Adjust for the gap between rows
-                    }
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Location = new Point(pictureX, pictureY);
+                        pictureBox.Size = new Size(pictureSizeX, pictureSizeY);
+                        pictureBox.Image = System.Drawing.Image.FromFile(img.Filename);
 
-                    PictureBox overlay = new PictureBox();
+                        pictureX += pictureSizeX + 10; // Adjust for the gap between columns
+                        xRow++;
 
-                    //Download Button
-                    downloadedLabel.Visible = false;
-                    sourceFilePath = img.Filename;
-
-                    //Create download button
-                    downloadButton = new Button();
-                    downloadButton.Name = "download button";
-                    downloadButton.Text = "⤓";
-                    downloadButton.Size = new Size(40, 40);
-                    downloadButton.Location = pictureBox.Location;
-                    downloadButton.ForeColor = Color.White;
-                    downloadButton.Font = new Font("Microsoft Sans Serif", 24, FontStyle.Bold);
-
-                    Controls.Add(downloadButton);
-                    downloadButton.BringToFront();
-
-                    //download click event
-                    downloadButton.Click += (t, EventArgs) =>
-                    {
-                        //Exactly the same code if the download button was pressed in form4
-                        try
+                        if (xRow == 3) // Create a new row after 3 columns
                         {
-                            string downloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-                            string destFolderPath = Path.Combine(downloadFolder, "Downloads");
-
-                            if (!Directory.Exists(destFolderPath))
-                            {
-                                Directory.CreateDirectory(destFolderPath);
-                            }
-
-                            string destFilePath = Path.Combine(destFolderPath, Path.GetFileName(sourceFilePath));
-
-                            File.Copy(sourceFilePath, destFilePath, true);
-                            downloadedLabel.Text = "'Download' Success";
-                            downloadedLabel.Visible = true;
+                            xRow = 0;
+                            pictureX = 10;
+                            pictureY += pictureSizeY + 10; // Adjust for the gap between rows
                         }
-                        catch
-                        {
-                            downloadedLabel.Text = "Couldn't 'Download' Image";
-                            downloadedLabel.Visible = true;
-                        }
-                    };
 
-                    pictureBox.MouseLeave += (s, EventArgs) =>
-                    {
+                        PictureBox overlay = new PictureBox();
+
+                        //Download Button
                         downloadedLabel.Visible = false;
-                    };
+                        sourceFilePath = img.Filename;
 
-                    //filename
-                    pictureBox.Tag = img.Filename;
+                        //Create download button
+                        downloadButton = new Button();
+                        downloadButton.Name = "download button";
+                        downloadButton.Text = "⤓";
+                        downloadButton.Size = new Size(40, 40);
+                        downloadButton.Location = pictureBox.Location;
+                        downloadButton.ForeColor = Color.White;
+                        downloadButton.Font = new Font("Microsoft Sans Serif", 24, FontStyle.Bold);
 
-                    pictureBox.Click += (s, EventArgs) =>
-                    {
-                        previousScrollPosition = this.AutoScrollPosition;
-                        string fileName = (string)((PictureBox)s).Tag;
-                        
-                        (new Form4(fileName, previousScrollPosition)).Show(); this.Hide();
-                    };
+                        Controls.Add(downloadButton);
+                        downloadButton.BringToFront();
 
-                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                    Controls.Add(pictureBox);
+                        //download click event
+                        downloadButton.Click += (t, EventArgs) =>
+                        {
+                            //Exactly the same code if the download button was pressed in form4
+                            try
+                            {
+                                string downloadFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                                string destFolderPath = Path.Combine(downloadFolder, "Downloads");
+
+                                if (!Directory.Exists(destFolderPath))
+                                {
+                                    Directory.CreateDirectory(destFolderPath);
+                                }
+
+                                string destFilePath = Path.Combine(destFolderPath, Path.GetFileName(sourceFilePath));
+
+                                File.Copy(sourceFilePath, destFilePath, true);
+                                downloadedLabel.Text = "'Download' Success";
+                                downloadedLabel.Visible = true;
+                            }
+                            catch
+                            {
+                                downloadedLabel.Text = "Couldn't 'Download' Image";
+                                downloadedLabel.Visible = true;
+                            }
+                        };
+
+                        pictureBox.MouseLeave += (s, EventArgs) =>
+                        {
+                            downloadedLabel.Visible = false;
+                        };
+
+                        //filename
+                        pictureBox.Tag = img.Filename;
+
+                        pictureBox.Click += (s, EventArgs) =>
+                        {
+                            previousScrollPosition = this.AutoScrollPosition;
+                            string fileName = (string)((PictureBox)s).Tag;
+
+                            (new Form4(fileName, previousScrollPosition)).Show(); this.Hide();
+                        };
+
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                        Controls.Add(pictureBox);
+                    }
+                    catch (FileNotFoundException)
+                    {}
                 }
             }
             else

@@ -32,6 +32,8 @@ namespace DNDImageSearch
             sizeLabel.Text += imageWidth + " X " + imageHeight;
 
             previousScrollPosition = scrollPosition;
+            largePreviewBox.MouseWheel += new MouseEventHandler(largePreviewBox_MouseWheel);
+
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -44,6 +46,51 @@ namespace DNDImageSearch
                 this.Hide();
             }
         }
+        private void largePreviewBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            float zoomFactor = 1.1f; // Speed of the zoom
+
+            // Calculate the zoom factor based on the mouse wheel delta
+            if (e.Delta > 0)
+            {
+                // Calculate new dimensions
+                int newWidth = (int)(largePreviewBox.Width * zoomFactor);
+                int newHeight = (int)(largePreviewBox.Height * zoomFactor);
+
+                // Calculate the difference between the new and old dimensions
+                int widthDiff = newWidth - largePreviewBox.Width;
+                int heightDiff = newHeight - largePreviewBox.Height;
+
+                // Calculate the new location to keep the image centered
+                int newX = largePreviewBox.Left - widthDiff / 2;
+                int newY = largePreviewBox.Top - heightDiff / 2;
+
+                // Update the PictureBox dimensions and location
+                largePreviewBox.Size = new Size(newWidth, newHeight);
+                largePreviewBox.Location = new Point(newX, newY);
+            }
+            else if (e.Delta < 0)
+            {
+                int newWidth = (int)(largePreviewBox.Width / zoomFactor);
+                int newHeight = (int)(largePreviewBox.Height / zoomFactor);
+
+                int widthDiff = largePreviewBox.Width - newWidth;
+                int heightDiff = largePreviewBox.Height - newHeight;
+
+                int newX = largePreviewBox.Left + widthDiff / 2;
+                int newY = largePreviewBox.Top + heightDiff / 2;
+
+                if (newWidth >= largePreviewBox.Parent.ClientSize.Width || newHeight >= largePreviewBox.Parent.ClientSize.Height)
+                {
+                    // Ensure the PictureBox doesn't become smaller than the window
+                    return;
+                }
+
+                largePreviewBox.Size = new Size(newWidth, newHeight);
+                largePreviewBox.Location = new Point(newX, newY);
+            }
+        }
+
 
         private void downloadButton_Click(object sender, EventArgs e)
         {
