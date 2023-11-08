@@ -1,6 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace DNDImageSearch
@@ -126,3 +126,9 @@ namespace DNDImageSearch
         }
     }
 }
+
+
+//TODO: Look at the test section and figure out what it does
+//TODO: Look at analye tab
+//TODO: Look at spy++
+//TODO: Look at setting keyboard shortcut for window > split

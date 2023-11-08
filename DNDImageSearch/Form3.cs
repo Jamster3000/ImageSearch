@@ -128,7 +128,7 @@ namespace DNDImageSearch
                         Controls.Add(pictureBox);
                     }
                     catch (FileNotFoundException)
-                    {}
+                    { }
                 }
             }
             else
