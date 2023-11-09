@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DNDImageSearch
+namespace imageSearch
 {
     public partial class Form4 : Form
     {

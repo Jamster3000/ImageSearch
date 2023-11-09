@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DNDImageSearch
+namespace imageSearch
 {
     public partial class Form3 : Form
     {
@@ -13,9 +13,6 @@ namespace DNDImageSearch
         public static Form3 currentInstance;
         private Point previousScrollPosition = new Point(0, 0);
         string sourceFilePath;
-#pragma warning disable CS0414 // The field 'Form3.destFolderPath' is assigned but its value is never used
-        string destFolderPath = "Downloads";
-#pragma warning restore CS0414 // The field 'Form3.destFolderPath' is assigned but its value is never used
 
         public Form3(userChosenKeywords keywords)
         {

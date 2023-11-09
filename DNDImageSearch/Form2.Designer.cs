@@ -1,4 +1,4 @@
-﻿namespace DNDImageSearch
+﻿namespace imageSearch
 {
     partial class addDataWindow
     {
@@ -185,7 +185,7 @@
             this.updateLabel.AutoSize = true;
             this.updateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateLabel.ForeColor = System.Drawing.Color.White;
-            this.updateLabel.Location = new System.Drawing.Point(294, 392);
+            this.updateLabel.Location = new System.Drawing.Point(231, 397);
             this.updateLabel.Name = "updateLabel";
             this.updateLabel.Size = new System.Drawing.Size(282, 36);
             this.updateLabel.TabIndex = 12;

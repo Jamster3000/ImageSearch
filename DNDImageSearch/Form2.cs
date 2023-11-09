@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DNDImageSearch
+namespace imageSearch
 {
     public partial class addDataWindow : Form
     {
@@ -73,30 +73,52 @@ namespace DNDImageSearch
             }
             else
             {
-                //open and write data to database
-                sqliteData.openDatabase();
-                sqliteData.insertData(imageFile, userKeywords);
+                // Check if the image file already exists in the database
+                Console.WriteLine(IsImageFileAlreadyInDatabase(imageFile));
+                if (IsImageFileAlreadyInDatabase(imageFile))
+                {
+                    // Show a label to notify the user
+                    updateLabel.Text = "Image already in database.";
+                    updateLabel.Visible = true;
+                }
+                else
+                {
+                    //open and write data to the database
+                    sqliteData.openDatabase();
+                    sqliteData.insertData(imageFile, userKeywords);
 
-                //inform user of success
-                updateLabel.Text = "Saved Successfully!";
-                updateLabel.Visible = true;
+                    // Inform user of success
+                    updateLabel.Text = "Saved Successfully!";
+                    updateLabel.Visible = true;
 
-                //store the previous input for the user to see and remember
-                previousImageLabel.Text = "Previous: " + imageFile;
-                previousKeywordLabel.Text = "Previous: " + userKeywords;
+                    // Store the previous input for the user to see and remember
+                    previousImageLabel.Text = "Previous: " + imageFile;
+                    previousKeywordLabel.Text = "Previous: " + userKeywords;
 
-                //Empty the textboxes
-                imagePathTextBox.Text = "";
-                keywordsTextBox.Text = "";
-                previewBox.Image = null;
+                    // Empty the textboxes
+                    imagePathTextBox.Text = "";
+                    keywordsTextBox.Text = "";
+                    previewBox.Image = null;
 
-                //focus the id textbox or whatever the top input is
-                imagePathTextBox.Focus();
+                    // Focus the id textbox or whatever the top input is
+                    imagePathTextBox.Focus();
 
-                sqliteData.openDatabase();
-                int lastId = sqliteData.lastId();
+                    sqliteData.openDatabase();
+                    int lastId = sqliteData.lastId();
+                }
             }
         }
+
+        private bool IsImageFileAlreadyInDatabase(string imageFile)
+        {
+            // Check if the image file already exists in the database
+            var existingRecord = sqliteData.SearchImagesByFilename(imageFile);
+
+            // Return true if a record with the same image file path exists
+            return existingRecord.Length > 0;
+        }
+
+
 
         private void keywordsTextBox_Enter(object sender, EventArgs e)
         {
@@ -126,7 +148,6 @@ namespace DNDImageSearch
                 saveButton_Click(sender, e);
             }
         }
-
         private void DiscardButton(object sender, EventArgs e)
         {
             string imagePathText = imagePathTextBox.Text;
@@ -145,7 +166,6 @@ namespace DNDImageSearch
                 }
             }
         }
-
         private void imagePathTextBox_TextChanged(object sender, EventArgs e)
         {
             try

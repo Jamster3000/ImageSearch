@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNDImageSearch", "DNDImageSearch\DNDImageSearch.csproj", "{3D565106-F8E2-4E39-8B07-484058CECCAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imageSearch", "DNDImageSearch\imageSearch.csproj", "{3D565106-F8E2-4E39-8B07-484058CECCAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

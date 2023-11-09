@@ -1,4 +1,4 @@
-﻿namespace DNDImageSearch
+﻿namespace imageSearch
 {
     partial class Form3
     {

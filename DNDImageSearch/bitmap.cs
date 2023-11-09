@@ -1,4 +1,4 @@
-﻿namespace DNDImageSearch
+﻿namespace imageSearch
 {
     internal class bitmap
     {

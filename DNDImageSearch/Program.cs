@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace DNDImageSearch
+namespace imageSearch
 {
     internal static class Program
     {

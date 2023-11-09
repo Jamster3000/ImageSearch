@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DNDImageSearch.Properties
+namespace imageSearch.Properties
 {
 
 

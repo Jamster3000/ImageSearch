@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
+using System.Windows.Forms;
 
-namespace DNDImageSearch
+namespace imageSearch
 {
     public class SQLiteData
     {
@@ -79,6 +80,19 @@ namespace DNDImageSearch
                 "SELECT * FROM Images WHERE keywords LIKE @Keyword",
                 new { Keyword = "%" + keyword + "%" }).ToArray();
         }
+
+        public Image[] SearchImagesByFilename(string filename)
+        {
+            if (conn == null || conn.State != ConnectionState.Open)
+            {
+                throw new InvalidOperationException("Database connection is not open.");
+            }
+
+            return conn.Query<Image>(
+                "SELECT * FROM Images WHERE filename = @Filename",
+                new { Filename = filename }).ToArray();
+        }
+
 
         public void ClearImagesTable()
         {
