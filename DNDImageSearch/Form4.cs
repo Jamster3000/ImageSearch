@@ -10,7 +10,9 @@ namespace DNDImageSearch
         public SQLiteData sqliteData = new SQLiteData();
         private Point previousScrollPosition;
         string sourceFilePath;
+#pragma warning disable CS0414 // The field 'Form4.destFolderPath' is assigned but its value is never used
         string destFolderPath = "Downloads";
+#pragma warning restore CS0414 // The field 'Form4.destFolderPath' is assigned but its value is never used
         public Form4(string fileName, Point scrollPosition)
         {
             InitializeComponent();
@@ -127,8 +129,4 @@ namespace DNDImageSearch
     }
 }
 
-
-//TODO: Look at the test section and figure out what it does
-//TODO: Look at analye tab
-//TODO: Look at spy++
 //TODO: Look at setting keyboard shortcut for window > split
