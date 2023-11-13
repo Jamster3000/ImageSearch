@@ -147,7 +147,10 @@ namespace imageSearch
         {
             downloadButton.FlatAppearance.BorderColor = Color.FromArgb(255, 28, 34, 38);
         }
+
+        private void Form4_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
-
-//TODO: Look at setting keyboard shortcut for window > split

@@ -260,6 +260,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addDataWindow";
             this.Text = "Add Image Data";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addDataWindow_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
             this.ResumeLayout(false);

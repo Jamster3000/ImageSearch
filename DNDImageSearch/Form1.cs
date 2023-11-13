@@ -59,6 +59,11 @@ namespace imageSearch
                 MessageBox.Show("All Data Removed.", "Completed");
             }
         }
+
+        private void mainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
     public class userChosenKeywords
     {

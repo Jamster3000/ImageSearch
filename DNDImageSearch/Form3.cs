@@ -162,6 +162,11 @@ namespace imageSearch
         {
             (new mainWindow()).Show(); this.Hide();
         }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 

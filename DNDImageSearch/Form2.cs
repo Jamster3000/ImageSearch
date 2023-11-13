@@ -209,5 +209,10 @@ namespace imageSearch
         {
             discardButton.FlatAppearance.BorderColor = Color.FromArgb(255, 28, 34, 38);
         }
+
+        private void addDataWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -143,6 +143,7 @@
             this.Controls.Add(this.largePreviewBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form4_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.largePreviewBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
