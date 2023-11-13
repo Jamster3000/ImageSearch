@@ -40,7 +40,6 @@ namespace imageSearch
                 imagePathTextBox.SelectionStart = imagePathTextBox.Text.Length;
             }
         }
-
         private void imageDialogeButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -55,7 +54,6 @@ namespace imageSearch
                 imagePathTextBox.SelectionLength = selectedFile.Length;
             }
         }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             string imageFile = imagePathTextBox.Text;
@@ -100,6 +98,9 @@ namespace imageSearch
                     keywordsTextBox.Text = "";
                     previewBox.Image = null;
 
+                    //In case the saved image was too large
+                    previewBox.BorderStyle = BorderStyle.None;
+
                     // Focus the id textbox or whatever the top input is
                     imagePathTextBox.Focus();
 
@@ -117,8 +118,6 @@ namespace imageSearch
             // Return true if a record with the same image file path exists
             return existingRecord.Length > 0;
         }
-
-
 
         private void keywordsTextBox_Enter(object sender, EventArgs e)
         {
@@ -176,6 +175,19 @@ namespace imageSearch
             { }
             catch (System.IO.FileNotFoundException)
             { }
+            catch (OutOfMemoryException)
+            {
+                //inform the user that the image dimensions are too big but the can continue for as long as they are okay with the image not being seen.
+                DialogResult imageSizeError = MessageBox.Show("The image dimensions are too large to show an image of. You may continue but the image itself will never be shown. Continue?", "Large dimensions", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (imageSizeError == DialogResult.Yes)
+                {
+                    previewBox.BorderStyle = BorderStyle.Fixed3D;
+                }
+                else
+                {
+                    imagePathTextBox.Text = "";
+                }
+            }
         }
 
         private void saveButton_MouseLeave(object sender, EventArgs e)

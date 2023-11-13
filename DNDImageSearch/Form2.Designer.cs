@@ -207,7 +207,7 @@
             this.previousImageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.previousImageLabel.ForeColor = System.Drawing.Color.White;
             this.previousImageLabel.Location = new System.Drawing.Point(181, 177);
-            this.previousImageLabel.MaximumSize = new System.Drawing.Size(300, 0);
+            this.previousImageLabel.MaximumSize = new System.Drawing.Size(300, 80);
             this.previousImageLabel.Name = "previousImageLabel";
             this.previousImageLabel.Size = new System.Drawing.Size(90, 22);
             this.previousImageLabel.TabIndex = 15;
@@ -219,7 +219,7 @@
             this.previousKeywordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.previousKeywordLabel.ForeColor = System.Drawing.Color.White;
             this.previousKeywordLabel.Location = new System.Drawing.Point(181, 292);
-            this.previousKeywordLabel.MaximumSize = new System.Drawing.Size(300, 0);
+            this.previousKeywordLabel.MaximumSize = new System.Drawing.Size(300, 90);
             this.previousKeywordLabel.Name = "previousKeywordLabel";
             this.previousKeywordLabel.Size = new System.Drawing.Size(90, 22);
             this.previousKeywordLabel.TabIndex = 16;

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace imageSearch
 {
@@ -21,7 +22,7 @@ namespace imageSearch
             currentInstance = this;
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private async Task test()
         {
             Button downloadButton;
             //makes sure all the images are removed from the grid as it will have to add them again, this solves the issue of repeated images
@@ -49,8 +50,19 @@ namespace imageSearch
                     {
                         PictureBox pictureBox = new PictureBox();
                         pictureBox.Location = new Point(pictureX, pictureY);
-                        pictureBox.Size = new Size(pictureSizeX, pictureSizeY);
-                        pictureBox.Image = System.Drawing.Image.FromFile(img.Filename);
+                        pictureBox.BackgroundImageLayout = ImageLayout.Zoom;
+
+                        try
+                        {
+                            pictureBox.Size = new Size(pictureSizeX, pictureSizeY);
+                            pictureBox.BackgroundImage = System.Drawing.Image.FromFile(img.Filename);
+                        }
+                        catch (OutOfMemoryException)
+                        {
+                            pictureBox.Size = new Size(225, 225);
+                            pictureBox.BorderStyle = BorderStyle.Fixed3D;
+                        }
+
 
                         pictureX += pictureSizeX + 10; // Adjust for the gap between columns
                         xRow++;
@@ -123,7 +135,6 @@ namespace imageSearch
                             (new Form4(fileName, previousScrollPosition)).Show(); this.Hide();
                         };
 
-                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         Controls.Add(pictureBox);
                     }
                     catch (FileNotFoundException)
@@ -134,6 +145,10 @@ namespace imageSearch
             {
                 noImagesLabel.Visible = true;
             }
+        }
+        private async void Form3_Load(object sender, EventArgs e)
+        {
+            await test();
         }
 
         protected override void OnActivated(EventArgs e)
@@ -149,3 +164,5 @@ namespace imageSearch
         }
     }
 }
+
+//TODO: Reason for OutOfMemoryError: Because some images dimentions are too big. Either refuse the image at add in, or change the size

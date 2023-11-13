@@ -10,31 +10,52 @@ namespace imageSearch
         public SQLiteData sqliteData = new SQLiteData();
         private Point previousScrollPosition;
         string sourceFilePath;
-#pragma warning disable CS0414 // The field 'Form4.destFolderPath' is assigned but its value is never used
-        string destFolderPath = "Downloads";
-#pragma warning restore CS0414 // The field 'Form4.destFolderPath' is assigned but its value is never used
+
         public Form4(string fileName, Point scrollPosition)
         {
             InitializeComponent();
-            sqliteData.openDatabase();
 
-            var image = System.Drawing.Image.FromFile(fileName);
-            largePreviewBox.Image = image;
-            imagePathLabel.Text += fileName;
-            sourceFilePath = fileName;
+            try
+            {
+                sqliteData.openDatabase();
+
+                var image = System.Drawing.Image.FromFile(fileName);
+                largePreviewBox.Image = image;
+                imagePathLabel.Text += fileName;
+                sourceFilePath = fileName;
 
 
-            //Get a list of keywords linked to the image
-            var imageKeywords = sqliteData.getKeywords(fileName);
-            keywordsLabel.Text += string.Join(", ", imageKeywords);
+                //Get a list of keywords linked to the image
+                var imageKeywords = sqliteData.getKeywords(fileName);
+                keywordsLabel.Text += string.Join(", ", imageKeywords);
 
-            //get size of the image
-            string imageWidth = image.Width.ToString();
-            string imageHeight = image.Height.ToString();
-            sizeLabel.Text += imageWidth + " X " + imageHeight;
+                //get size of the image
+                string imageWidth = image.Width.ToString();
+                string imageHeight = image.Height.ToString();
+                sizeLabel.Text += imageWidth + " X " + imageHeight;
 
-            previousScrollPosition = scrollPosition;
-            largePreviewBox.MouseWheel += new MouseEventHandler(largePreviewBox_MouseWheel);
+                previousScrollPosition = scrollPosition;
+                largePreviewBox.MouseWheel += new MouseEventHandler(largePreviewBox_MouseWheel);
+            }
+            catch (OutOfMemoryException)
+            {
+                //assuming that the image is too large to be viewed
+                sqliteData.openDatabase();
+
+                largePreviewBox.BorderStyle = BorderStyle.Fixed3D;
+                imagePathLabel.Text += fileName;
+                sourceFilePath = fileName;
+
+
+                //Get a list of keywords linked to the image
+                var imageKeywords = sqliteData.getKeywords(fileName);
+                keywordsLabel.Text += string.Join(", ", imageKeywords);
+
+                sizeLabel.Text += "Unknown";
+
+                previousScrollPosition = scrollPosition;
+            }
+            
 
         }
 
