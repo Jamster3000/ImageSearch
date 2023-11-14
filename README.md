@@ -10,6 +10,8 @@ It uses SQLite database rather than the original idea of using a csv file.
 To use this program take a look at the first release (for windows). Just download the exe file and execute.
 https://github.com/Jamster3000/ImageSearch/releases/tag/v1.0.0
 
+To upgrade to a newer version download the new version. In your old version look for the information files that came with it. Save the "ImageLibrary" file. Once the new version is ready for use, replace the "ImageLibrary" file that came with the download with the "ImageLibrary" that you copied. This will ensure that the data you have saved to the database already will remain in the new version. Please be aware that any modifications to the database in newer version may result in incompatability.
+
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE https://www.gnu.org/licenses/gpl-3.0.en.html - see the LICENSE https://github.com/Jamster3000/ImageSearch/blob/master/LICENSE file for details.
