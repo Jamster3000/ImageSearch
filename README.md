@@ -2,15 +2,13 @@
 
 ![searchMagnifyingGlass](https://github.com/Jamster3000/ImageSearch/assets/148760154/b062c4b1-6369-4e42-9b23-ef6411e04b77)
 
-###In progress
-
 This is a desktop application using c# programming language and asp.net along with windows forms. 
 This is to search for images by a database of keywords. It also has an option to add to images and keywords linked to each one and preview the selected image before saving it to the database.
 It uses SQLite database rather than the original idea of using a csv file.
 
 ## usage
 To use this program take a look at the first release (for windows). Just download the exe file and execute.
-https://github.com/Jamster3000/ImageSearch/releases/tag/v0.4.0
+https://github.com/Jamster3000/ImageSearch/releases/tag/v1.0.0
 
 For a more detailed usage of the app see the wiki (https://github.com/Jamster3000/ImageSearch/wiki)
 
