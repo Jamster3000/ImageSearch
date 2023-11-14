@@ -10,8 +10,6 @@ It uses SQLite database rather than the original idea of using a csv file.
 To use this program take a look at the first release (for windows). Just download the exe file and execute.
 https://github.com/Jamster3000/ImageSearch/releases/tag/v1.0.0
 
-For a more detailed usage of the app see the wiki (https://github.com/Jamster3000/ImageSearch/wiki)
-
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE https://www.gnu.org/licenses/gpl-3.0.en.html - see the LICENSE https://github.com/Jamster3000/ImageSearch/blob/master/LICENSE file for details.
