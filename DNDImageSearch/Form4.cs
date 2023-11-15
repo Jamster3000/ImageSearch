@@ -168,7 +168,7 @@ namespace imageSearch
             if (editURLButton.Text != "💾")
             {
                 editURLButton.Text = "💾";
-                URLTextBox.Text = "Enter Image URl here...";
+                URLTextBox.Text = "Enter Image URL here...";
                 URLTextBox.ReadOnly = false;
             }
             else
