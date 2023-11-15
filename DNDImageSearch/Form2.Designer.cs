@@ -45,6 +45,8 @@
             this.previousImageLabel = new System.Windows.Forms.Label();
             this.previousKeywordLabel = new System.Windows.Forms.Label();
             this.underline = new System.Windows.Forms.Label();
+            this.imageURLTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,29 +67,29 @@
             this.imagePathLabel.AutoSize = true;
             this.imagePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imagePathLabel.ForeColor = System.Drawing.Color.White;
-            this.imagePathLabel.Location = new System.Drawing.Point(13, 138);
+            this.imagePathLabel.Location = new System.Drawing.Point(7, 113);
             this.imagePathLabel.Name = "imagePathLabel";
-            this.imagePathLabel.Size = new System.Drawing.Size(164, 36);
+            this.imagePathLabel.Size = new System.Drawing.Size(176, 36);
             this.imagePathLabel.TabIndex = 4;
-            this.imagePathLabel.Text = "Image Path";
+            this.imagePathLabel.Text = "Image Path*";
             // 
             // keywordsLabel
             // 
             this.keywordsLabel.AutoSize = true;
             this.keywordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.keywordsLabel.ForeColor = System.Drawing.Color.White;
-            this.keywordsLabel.Location = new System.Drawing.Point(12, 251);
+            this.keywordsLabel.Location = new System.Drawing.Point(6, 207);
             this.keywordsLabel.Name = "keywordsLabel";
-            this.keywordsLabel.Size = new System.Drawing.Size(162, 38);
+            this.keywordsLabel.Size = new System.Drawing.Size(175, 38);
             this.keywordsLabel.TabIndex = 5;
-            this.keywordsLabel.Text = "Keywords";
+            this.keywordsLabel.Text = "Keywords*";
             // 
             // imagePathTextBox
             // 
             this.imagePathTextBox.AllowDrop = true;
             this.imagePathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imagePathTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.imagePathTextBox.Location = new System.Drawing.Point(199, 144);
+            this.imagePathTextBox.Location = new System.Drawing.Point(199, 116);
             this.imagePathTextBox.Name = "imagePathTextBox";
             this.imagePathTextBox.Size = new System.Drawing.Size(246, 30);
             this.imagePathTextBox.TabIndex = 3;
@@ -100,7 +102,7 @@
             // 
             this.keywordsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.keywordsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.keywordsTextBox.Location = new System.Drawing.Point(199, 259);
+            this.keywordsTextBox.Location = new System.Drawing.Point(199, 215);
             this.keywordsTextBox.Name = "keywordsTextBox";
             this.keywordsTextBox.Size = new System.Drawing.Size(247, 30);
             this.keywordsTextBox.TabIndex = 5;
@@ -112,7 +114,7 @@
             this.imageDialogeButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.imageDialogeButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.imageDialogeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imageDialogeButton.Location = new System.Drawing.Point(451, 142);
+            this.imageDialogeButton.Location = new System.Drawing.Point(451, 115);
             this.imageDialogeButton.Name = "imageDialogeButton";
             this.imageDialogeButton.Size = new System.Drawing.Size(22, 34);
             this.imageDialogeButton.TabIndex = 4;
@@ -206,7 +208,7 @@
             this.previousImageLabel.AutoSize = true;
             this.previousImageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.previousImageLabel.ForeColor = System.Drawing.Color.White;
-            this.previousImageLabel.Location = new System.Drawing.Point(181, 177);
+            this.previousImageLabel.Location = new System.Drawing.Point(181, 150);
             this.previousImageLabel.MaximumSize = new System.Drawing.Size(300, 80);
             this.previousImageLabel.Name = "previousImageLabel";
             this.previousImageLabel.Size = new System.Drawing.Size(90, 22);
@@ -218,7 +220,7 @@
             this.previousKeywordLabel.AutoSize = true;
             this.previousKeywordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.previousKeywordLabel.ForeColor = System.Drawing.Color.White;
-            this.previousKeywordLabel.Location = new System.Drawing.Point(181, 292);
+            this.previousKeywordLabel.Location = new System.Drawing.Point(181, 249);
             this.previousKeywordLabel.MaximumSize = new System.Drawing.Size(300, 90);
             this.previousKeywordLabel.Name = "previousKeywordLabel";
             this.previousKeywordLabel.Size = new System.Drawing.Size(90, 22);
@@ -237,12 +239,34 @@
             this.underline.TabIndex = 17;
             this.underline.Text = "                                                  ";
             // 
+            // imageURLTextBox
+            // 
+            this.imageURLTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageURLTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.imageURLTextBox.Location = new System.Drawing.Point(199, 324);
+            this.imageURLTextBox.Name = "imageURLTextBox";
+            this.imageURLTextBox.Size = new System.Drawing.Size(247, 30);
+            this.imageURLTextBox.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(6, 321);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 38);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Image URL";
+            // 
             // addDataWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.imageURLTextBox);
             this.Controls.Add(this.underline);
             this.Controls.Add(this.previousKeywordLabel);
             this.Controls.Add(this.previousImageLabel);
@@ -285,5 +309,7 @@
         private System.Windows.Forms.Label previousImageLabel;
         private System.Windows.Forms.Label previousKeywordLabel;
         private System.Windows.Forms.Label underline;
+        private System.Windows.Forms.TextBox imageURLTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

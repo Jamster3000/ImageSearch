@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -24,15 +25,21 @@ namespace imageSearch
                 imagePathLabel.Text += fileName;
                 sourceFilePath = fileName;
 
-
                 //Get a list of keywords linked to the image
-                var imageKeywords = sqliteData.getKeywords(fileName);
+                (List<string> keywords, string imageURL) = sqliteData.getKeywords(fileName);
+
+
+                List<string> imageKeywords = keywords;
+                string imageUrl = imageURL;
+
                 keywordsLabel.Text += string.Join(", ", imageKeywords);
 
                 //get size of the image
                 string imageWidth = image.Width.ToString();
                 string imageHeight = image.Height.ToString();
                 sizeLabel.Text += imageWidth + " X " + imageHeight;
+
+                URLTextBox.Text = imageUrl;
 
                 previousScrollPosition = scrollPosition;
                 largePreviewBox.MouseWheel += new MouseEventHandler(largePreviewBox_MouseWheel);
@@ -55,8 +62,6 @@ namespace imageSearch
 
                 previousScrollPosition = scrollPosition;
             }
-            
-
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -151,6 +156,11 @@ namespace imageSearch
         private void Form4_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

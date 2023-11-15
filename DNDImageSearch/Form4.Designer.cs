@@ -36,6 +36,8 @@
             this.keywordsLabel = new System.Windows.Forms.Label();
             this.sizeLabel = new System.Windows.Forms.Label();
             this.successLabel = new System.Windows.Forms.Label();
+            this.URLTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.largePreviewBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,24 +87,24 @@
             // imagePathLabel
             // 
             this.imagePathLabel.AutoSize = true;
-            this.imagePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imagePathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imagePathLabel.ForeColor = System.Drawing.Color.White;
-            this.imagePathLabel.Location = new System.Drawing.Point(518, 67);
-            this.imagePathLabel.MaximumSize = new System.Drawing.Size(280, 0);
+            this.imagePathLabel.Location = new System.Drawing.Point(518, 26);
+            this.imagePathLabel.MaximumSize = new System.Drawing.Size(280, 110);
             this.imagePathLabel.Name = "imagePathLabel";
-            this.imagePathLabel.Size = new System.Drawing.Size(94, 25);
+            this.imagePathLabel.Size = new System.Drawing.Size(91, 22);
             this.imagePathLabel.TabIndex = 15;
-            this.imagePathLabel.Text = "File Path:";
+            this.imagePathLabel.Text = "File Path: ";
             // 
             // keywordsLabel
             // 
             this.keywordsLabel.AutoSize = true;
-            this.keywordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keywordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.keywordsLabel.ForeColor = System.Drawing.Color.White;
-            this.keywordsLabel.Location = new System.Drawing.Point(518, 212);
-            this.keywordsLabel.MaximumSize = new System.Drawing.Size(280, 0);
+            this.keywordsLabel.Location = new System.Drawing.Point(518, 140);
+            this.keywordsLabel.MaximumSize = new System.Drawing.Size(280, 100);
             this.keywordsLabel.Name = "keywordsLabel";
-            this.keywordsLabel.Size = new System.Drawing.Size(110, 25);
+            this.keywordsLabel.Size = new System.Drawing.Size(99, 22);
             this.keywordsLabel.TabIndex = 16;
             this.keywordsLabel.Text = "Keywords: ";
             // 
@@ -111,12 +113,12 @@
             this.sizeLabel.AutoSize = true;
             this.sizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sizeLabel.ForeColor = System.Drawing.Color.White;
-            this.sizeLabel.Location = new System.Drawing.Point(518, 328);
-            this.sizeLabel.MaximumSize = new System.Drawing.Size(280, 0);
+            this.sizeLabel.Location = new System.Drawing.Point(518, 230);
+            this.sizeLabel.MaximumSize = new System.Drawing.Size(280, 25);
             this.sizeLabel.Name = "sizeLabel";
-            this.sizeLabel.Size = new System.Drawing.Size(62, 25);
+            this.sizeLabel.Size = new System.Drawing.Size(98, 25);
             this.sizeLabel.TabIndex = 17;
-            this.sizeLabel.Text = "Size: ";
+            this.sizeLabel.Text = "Size:  test";
             // 
             // successLabel
             // 
@@ -128,12 +130,40 @@
             this.successLabel.Size = new System.Drawing.Size(0, 32);
             this.successLabel.TabIndex = 18;
             // 
+            // URLTextBox
+            // 
+            this.URLTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.URLTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.URLTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.URLTextBox.ForeColor = System.Drawing.Color.White;
+            this.URLTextBox.Location = new System.Drawing.Point(523, 294);
+            this.URLTextBox.MaximumSize = new System.Drawing.Size(280, 100);
+            this.URLTextBox.Multiline = true;
+            this.URLTextBox.Name = "URLTextBox";
+            this.URLTextBox.ReadOnly = true;
+            this.URLTextBox.Size = new System.Drawing.Size(260, 81);
+            this.URLTextBox.TabIndex = 19;
+            this.URLTextBox.Text = "No Image URL Avaliable";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(517, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 25);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Image URL:";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.URLTextBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.successLabel);
             this.Controls.Add(this.sizeLabel);
@@ -144,6 +174,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form4_FormClosing);
+            this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.largePreviewBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,5 +190,7 @@
         private System.Windows.Forms.Label keywordsLabel;
         private System.Windows.Forms.Label sizeLabel;
         private System.Windows.Forms.Label successLabel;
+        private System.Windows.Forms.TextBox URLTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

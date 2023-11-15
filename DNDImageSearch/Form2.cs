@@ -83,7 +83,7 @@ namespace imageSearch
                 {
                     //open and write data to the database
                     sqliteData.openDatabase();
-                    sqliteData.insertData(imageFile, userKeywords);
+                    sqliteData.insertData(imageFile, userKeywords, imageURLTextBox.Text);
 
                     // Inform user of success
                     updateLabel.Text = "Saved Successfully!";
@@ -103,9 +103,6 @@ namespace imageSearch
 
                     // Focus the id textbox or whatever the top input is
                     imagePathTextBox.Focus();
-
-                    sqliteData.openDatabase();
-                    int lastId = sqliteData.lastId();
                 }
             }
         }

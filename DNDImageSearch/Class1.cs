@@ -24,18 +24,21 @@ namespace imageSearch
             }
 
             conn.Execute(@"
-        CREATE TABLE IF NOT EXISTS Images (
-            id INTEGER PRIMARY KEY,
-            filename TEXT,
-            keywords TEXT
-        )");
+                CREATE TABLE IF NOT EXISTS Images (
+                    id INTEGER PRIMARY KEY,
+                    filename TEXT,
+                    keywords TEXT,
+                    imageURL TEXT
+                )");
         }
 
-        public List<string> getKeywords(string imagePath)
+
+        public (List<string> keywords, string imageURL) getKeywords(string imagePath)
         {
             List<string> keywords = new List<string>();
+            string imageURL = "";
 
-            string query = "SELECT Keywords FROM Images WHERE Filename = @Filename";
+            string query = "SELECT Keywords, ImageURL FROM Images WHERE Filename = @Filename";
 
             using (SQLiteCommand command = new SQLiteCommand(query, conn))
             {
@@ -44,8 +47,10 @@ namespace imageSearch
                 {
                     while (reader.Read())
                     {
-                        string keyowrdsString = reader["Keywords"].ToString();
-                        string[] imageKeywords = keyowrdsString.Split(',');
+                        string keywordsString = reader["Keywords"].ToString();
+                        imageURL = reader["ImageURL"].ToString();
+
+                        string[] imageKeywords = keywordsString.Split(',');
 
                         foreach (string keyword in imageKeywords)
                         {
@@ -54,19 +59,22 @@ namespace imageSearch
                     }
                 }
             }
-            return keywords;
+
+            return (keywords, imageURL);
         }
 
-        public void insertData(string imageFile, string keywords)
+
+        public void insertData(string imageFile, string keywords, string imageURL)
         {
             if (conn == null || conn.State != ConnectionState.Open)
             {
                 throw new InvalidOperationException("Database connection is not open.");
             }
 
-            conn.Execute("INSERT INTO Images (filename, keywords) VALUES (@Filename, @Keywords)",
-            new { Filename = imageFile, Keywords = keywords });
+            conn.Execute("INSERT INTO Images (filename, keywords, imageURL) VALUES (@Filename, @Keywords, @ImageURL)",
+                new { Filename = imageFile, Keywords = keywords, ImageURL = imageURL });
         }
+
 
         public Image[] SearchImagesByKeyword(string keyword)
         {
@@ -102,25 +110,12 @@ namespace imageSearch
             }
             conn.Execute("DELETE FROM Images");
         }
-        public int lastId()
-        {
-            using (var conn = new SQLiteConnection("Data Source=image_library.db"))
-            {
-                conn.Open();
-                return conn.Query<int>("SELECT last_insert_rowid()").FirstOrDefault();
-            }
-        }
     }
 
     public class Image
     {
-        public int Id { get; set; }
-        public string Filename { get; set; }
-        public string Keywords { get; set; }
+            public string Filename { get; set; }
+            public string ImageURL { get; set; }
 
-        internal static System.Drawing.Bitmap FromFile(string v1, bool v2)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
