@@ -162,5 +162,30 @@ namespace imageSearch
         {
 
         }
+
+        private void editURLButton_Click(object sender, EventArgs e)
+        {
+            if (editURLButton.Text != "💾")
+            {
+                editURLButton.Text = "💾";
+                URLTextBox.Text = "Enter Image URl here...";
+                URLTextBox.ReadOnly = false;
+            }
+            else
+            {
+                editURLButton.Text = " ✎";
+                URLTextBox.ReadOnly = true;
+
+                sqliteData.UpdateImageURL(imagePathLabel.Text.Replace("File Path: ", ""), URLTextBox.Text);
+            }
+        }
+
+        private void URLTextBox_Enter(object sender, EventArgs e)
+        {
+            if (URLTextBox.ReadOnly == false)
+            {
+                URLTextBox.Text = "";
+            }
+        }
     }
 }

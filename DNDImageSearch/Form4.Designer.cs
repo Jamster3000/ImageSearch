@@ -38,6 +38,7 @@
             this.successLabel = new System.Windows.Forms.Label();
             this.URLTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.editURLButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.largePreviewBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,9 +117,9 @@
             this.sizeLabel.Location = new System.Drawing.Point(518, 230);
             this.sizeLabel.MaximumSize = new System.Drawing.Size(280, 25);
             this.sizeLabel.Name = "sizeLabel";
-            this.sizeLabel.Size = new System.Drawing.Size(98, 25);
+            this.sizeLabel.Size = new System.Drawing.Size(67, 25);
             this.sizeLabel.TabIndex = 17;
-            this.sizeLabel.Text = "Size:  test";
+            this.sizeLabel.Text = "Size:  ";
             // 
             // successLabel
             // 
@@ -136,14 +137,15 @@
             this.URLTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.URLTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.URLTextBox.ForeColor = System.Drawing.Color.White;
-            this.URLTextBox.Location = new System.Drawing.Point(523, 294);
+            this.URLTextBox.Location = new System.Drawing.Point(523, 301);
             this.URLTextBox.MaximumSize = new System.Drawing.Size(280, 100);
             this.URLTextBox.Multiline = true;
             this.URLTextBox.Name = "URLTextBox";
             this.URLTextBox.ReadOnly = true;
-            this.URLTextBox.Size = new System.Drawing.Size(260, 81);
+            this.URLTextBox.Size = new System.Drawing.Size(260, 74);
             this.URLTextBox.TabIndex = 19;
             this.URLTextBox.Text = "No Image URL Avaliable";
+            this.URLTextBox.Enter += new System.EventHandler(this.URLTextBox_Enter);
             // 
             // label1
             // 
@@ -156,12 +158,29 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Image URL:";
             // 
+            // editURLButton
+            // 
+            this.editURLButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
+            this.editURLButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.editURLButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editURLButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editURLButton.ForeColor = System.Drawing.Color.White;
+            this.editURLButton.Location = new System.Drawing.Point(740, 262);
+            this.editURLButton.Name = "editURLButton";
+            this.editURLButton.Size = new System.Drawing.Size(57, 33);
+            this.editURLButton.TabIndex = 21;
+            this.editURLButton.Text = " ✎";
+            this.editURLButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.editURLButton.UseVisualStyleBackColor = false;
+            this.editURLButton.Click += new System.EventHandler(this.editURLButton_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.editURLButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.URLTextBox);
             this.Controls.Add(this.backButton);
@@ -192,5 +211,6 @@
         private System.Windows.Forms.Label successLabel;
         private System.Windows.Forms.TextBox URLTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button editURLButton;
     }
 }

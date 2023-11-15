@@ -63,6 +63,18 @@ namespace imageSearch
             return (keywords, imageURL);
         }
 
+        public void UpdateImageURL(string filename, string newImageURL)
+        {
+            if (conn == null || conn.State != ConnectionState.Open)
+            {
+                throw new InvalidOperationException("Database connection is not open.");
+            }
+
+            string query = "UPDATE Images SET imageURL = @NewImageURL WHERE filename = @Filename";
+
+            conn.Execute(query, new { NewImageURL = newImageURL, Filename = filename });
+        }
+
 
         public void insertData(string imageFile, string keywords, string imageURL)
         {
