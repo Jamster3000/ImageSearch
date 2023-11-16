@@ -6,6 +6,7 @@ This is a desktop application using c# programming language along with windows f
 This is to search for images by a database of keywords. It also has an option to add to images and keywords linked to each one and preview the selected image before saving it to the database.
 It uses SQLite database rather than the original idea of using a csv file.
 
+in addition to this you can now also add an optional image url for IF your image is hosted somewhere. This is optional to add and can be changed on each individual image.
 ## usage
 To use this program take a look at the first release (for windows). Just download the exe file and execute.
 https://github.com/Jamster3000/ImageSearch/releases/tag/v1.0.0
