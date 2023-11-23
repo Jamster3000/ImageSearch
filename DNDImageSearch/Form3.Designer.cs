@@ -32,6 +32,7 @@
             this.noImagesLabel = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.downloadedLabel = new System.Windows.Forms.Label();
+            this.slideshowButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // noImagesLabel
@@ -72,6 +73,20 @@
             this.downloadedLabel.Text = "Successfully Downloaded";
             this.downloadedLabel.Visible = false;
             // 
+            // slideshowButton
+            // 
+            this.slideshowButton.FlatAppearance.BorderSize = 0;
+            this.slideshowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slideshowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slideshowButton.ForeColor = System.Drawing.Color.White;
+            this.slideshowButton.Location = new System.Drawing.Point(836, 9);
+            this.slideshowButton.Name = "slideshowButton";
+            this.slideshowButton.Size = new System.Drawing.Size(75, 59);
+            this.slideshowButton.TabIndex = 13;
+            this.slideshowButton.Text = "🎬";
+            this.slideshowButton.UseVisualStyleBackColor = true;
+            this.slideshowButton.Click += new System.EventHandler(this.slideshowButton_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -79,6 +94,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(923, 450);
+            this.Controls.Add(this.slideshowButton);
             this.Controls.Add(this.downloadedLabel);
             this.Controls.Add(this.noImagesLabel);
             this.Controls.Add(this.backButton);
@@ -97,5 +113,6 @@
         private System.Windows.Forms.Label noImagesLabel;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Label downloadedLabel;
+        private System.Windows.Forms.Button slideshowButton;
     }
 }

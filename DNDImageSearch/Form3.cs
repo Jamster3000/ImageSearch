@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using DNDImageSearch;
 
 namespace imageSearch
 {
@@ -170,6 +171,11 @@ namespace imageSearch
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void slideshowButton_Click(object sender, EventArgs e)
+        {
+            (new Form5(keywords)).Show(); this.Hide();
         }
     }
 }

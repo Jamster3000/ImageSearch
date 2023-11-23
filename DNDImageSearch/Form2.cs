@@ -214,5 +214,23 @@ namespace imageSearch
         {
             Application.Exit();
         }
+
+        private void previousImageLabel_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 0)
+            {
+                imagePathTextBox.Text = files[0];
+                imagePathTextBox.SelectionStart = imagePathTextBox.Text.Length;
+            }
+        }
+
+        private void previousImageLabel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
     }
 }
