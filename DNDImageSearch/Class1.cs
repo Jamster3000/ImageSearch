@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 
 namespace imageSearch
@@ -13,16 +14,34 @@ namespace imageSearch
         private SQLiteConnection conn;
         public void openDatabase()
         {
+            //check if the imageLibrary file is exists if not then try to check for backup if exists make that the imageLIbrary file and create a backup fo that
+            if (!File.Exists("imageLibrary.db"))
+            {
+                if (File.Exists("imageLibraryBackup.db"))
+                {
+                    //copy and rename backup database making that the official main database
+                    File.Copy("imageLibraryBackup.db", "imageLibrary.db");
+                }
+                else
+                {
+                    //this already assumes that the imageLibrary.db file dosen't exist
+                    //and assuming the imageLibraryBackup doesn't exists
+                    SQLiteConnection.CreateFile("imageLibrary.db");
+                    MessageBox.Show("The database was missing or couldn't be found.\nNew empty database was created.", "Missing database");
+                    backup();
+                }
+            }
+
             conn = new SQLiteConnection("Data Source=imageLibrary.db");
             conn.Open();
         }
+
         public void CreateImagesTable()
         {
             if (conn == null || conn.State != ConnectionState.Open)
             {
                 throw new InvalidOperationException("Database connection is not open.");
             }
-
             conn.Execute(@"
                 CREATE TABLE IF NOT EXISTS Images (
                     id INTEGER PRIMARY KEY,
@@ -31,8 +50,7 @@ namespace imageSearch
                     imageURL TEXT
                 )");
         }
-
-
+        
         public (List<string> keywords, string imageURL) getKeywords(string imagePath)
         {
             List<string> keywords = new List<string>();
@@ -122,12 +140,27 @@ namespace imageSearch
             }
             conn.Execute("DELETE FROM Images");
         }
+
+        public void backup()
+        {
+            using (var location = new SQLiteConnection(@"Data Source=imageLibrary.db; Version=3;"))
+            using (var destination = new SQLiteConnection(@"Data Source=imageLibraryBackup.db; Version=3;"))
+            {
+                try
+                {
+                    location.Open();
+                    destination.Open();
+                    location.BackupDatabase(destination, "main", "main", -1, null, 0);
+                }
+                catch (System.Data.SQLite.SQLiteException) { }
+            }
+        }
     }
 
     public class Image
     {
-            public string Filename { get; set; }
-            public string ImageURL { get; set; }
+        public string Filename { get; set; }
+        public string ImageURL { get; set; }
 
     }
 }

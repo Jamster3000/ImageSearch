@@ -93,6 +93,9 @@ namespace imageSearch
                     previousImageLabel.Text = "Previous: " + imageFile;
                     previousKeywordLabel.Text = "Previous: " + userKeywords;
 
+                    //create now backup of database which includes added data
+                    sqliteData.backup();
+
                     // Empty the textboxes
                     imagePathTextBox.Text = "";
                     keywordsTextBox.Text = "";
