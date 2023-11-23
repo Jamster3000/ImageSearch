@@ -36,6 +36,8 @@ namespace imageSearch
             sqliteData.openDatabase();
             var results = sqliteData.SearchImagesByKeyword(keywords.keywords);
 
+            this.Text += " - (" + results.Length.ToString() + ")";
+
             if (results.Any())
             {
                 int pictureX = 10;
