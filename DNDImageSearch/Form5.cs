@@ -43,6 +43,11 @@ namespace DNDImageSearch
                     index = (index + 1) % slideshowImages.Length;
                     displayImage();
                 }
+                catch (OutOfMemoryException)
+                {
+                    index = (index + 1) % slideshowImages.Length;
+                    displayImage();
+                }
             }
         }
         private void Form5_FormClosing(object sender, FormClosingEventArgs e)

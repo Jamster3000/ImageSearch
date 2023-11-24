@@ -28,12 +28,12 @@ namespace imageSearch
                     //and assuming the imageLibraryBackup doesn't exists
                     SQLiteConnection.CreateFile("imageLibrary.db");
                     MessageBox.Show("The database was missing or couldn't be found.\nNew empty database was created.", "Missing database");
-                    backup();
                 }
             }
 
             conn = new SQLiteConnection("Data Source=imageLibrary.db");
             conn.Open();
+            backup();
         }
 
         public void CreateImagesTable()

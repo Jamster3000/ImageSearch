@@ -98,6 +98,7 @@
             this.Controls.Add(this.downloadedLabel);
             this.Controls.Add(this.noImagesLabel);
             this.Controls.Add(this.backButton);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.Text = "Image Results";

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using DNDImageSearch;
+using System.Collections.Generic;
 
 namespace imageSearch
 {
@@ -15,6 +16,10 @@ namespace imageSearch
         public static Form3 currentInstance;
         private Point previousScrollPosition = new Point(0, 0);
         string sourceFilePath;
+        const int maxBackgroundLoads = 2;
+        int backgroundLoads = 0;
+
+        Dictionary<PictureBox, Task> loadingImages = new Dictionary<PictureBox, Task>();
         
         public Form3(userChosenKeywords keywords)
         {

@@ -224,7 +224,6 @@ namespace imageSearch
                 imagePathTextBox.SelectionStart = imagePathTextBox.Text.Length;
             }
         }
-
         private void previousImageLabel_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
