@@ -177,16 +177,8 @@ namespace imageSearch
             { }
             catch (OutOfMemoryException)
             {
-                //inform the user that the image dimensions are too big but the can continue for as long as they are okay with the image not being seen.
-                DialogResult imageSizeError = MessageBox.Show("The image dimensions are too large to show an image of. You may continue but the image itself will never be shown. Continue?", "Large dimensions", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (imageSizeError == DialogResult.Yes)
-                {
-                    previewBox.BorderStyle = BorderStyle.Fixed3D;
-                }
-                else
-                {
-                    imagePathTextBox.Text = "";
-                }
+                string nextImage = Path.ChangeExtension(imagePathTextBox.Text, "jpg");
+                previewBox.Image = System.Drawing.Image.FromFile(nextImage);
             }
         }
 
@@ -231,5 +223,99 @@ namespace imageSearch
                 e.Effect = DragDropEffects.Copy;
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                //path name to the image, not including image file name and format
+                string path = Path.GetDirectoryName(imagePathTextBox.Text);
+
+                string[] filesInDirectory = Directory.GetFiles(path);
+
+                //sort alphabetically
+                Array.Sort(filesInDirectory);
+
+                //get the index of the chosen image
+                int imageIndex = Array.IndexOf(filesInDirectory, imagePathTextBox.Text);
+
+                if (imageIndex >= 0)
+                {
+                    if (imageIndex < filesInDirectory.Length - 1)
+                    {
+                        string nextImage = filesInDirectory[imageIndex - 1];
+
+                        try
+                        {
+                            imagePathTextBox.Text = nextImage;
+                            previewBox.Image = System.Drawing.Image.FromFile(nextImage);
+                        }
+                        catch (OutOfMemoryException)
+                        {
+
+                            nextImage = Path.ChangeExtension(nextImage, "jpg");
+
+                            previewBox.Image = System.Drawing.Image.FromFile(nextImage);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message + ": The image might have been moved or is currputed.");
+            }
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //path name to the image, not including image file name and format
+                string path = Path.GetDirectoryName(imagePathTextBox.Text);
+
+                string[] filesInDirectory = Directory.GetFiles(path);
+
+                //sort alphabetically
+                Array.Sort(filesInDirectory);
+
+                //get the index of the chosen image
+                int imageIndex = Array.IndexOf(filesInDirectory, imagePathTextBox.Text);
+
+                if (imageIndex >= 0)
+                {
+                    if (imageIndex < filesInDirectory.Length - 1)
+                    {
+                        string nextImage = filesInDirectory[imageIndex + 1];
+
+                        try
+                        {
+                            imagePathTextBox.Text = nextImage;
+                            previewBox.Image = System.Drawing.Image.FromFile(nextImage);
+                        }
+                        catch (OutOfMemoryException)
+                        {
+                            nextImage = Path.ChangeExtension(nextImage, "jpg");
+                            previewBox.Image = System.Drawing.Image.FromFile(nextImage);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message + ": The image might have been moved or is currputed.");
+            }
+        }
+
+        private System.Drawing.Image resizeImage(System.Drawing.Image image, int width, int height)
+        {
+            Bitmap resizedImage = new Bitmap(width, height);
+            using (Graphics graphics = Graphics.FromImage(resizedImage)) {
+                graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                graphics.DrawImage(image, 0, 0, width, height);
+            }
+            return resizedImage;
+        }
     }
 }
+
+//check to see if image path is already in database

@@ -47,6 +47,8 @@
             this.underline = new System.Windows.Forms.Label();
             this.imageURLTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lastButton = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +95,7 @@
             this.imagePathTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imagePathTextBox.Name = "imagePathTextBox";
             this.imagePathTextBox.Size = new System.Drawing.Size(247, 30);
-            this.imagePathTextBox.TabIndex = 3;
+            this.imagePathTextBox.TabIndex = 4;
             this.imagePathTextBox.TextChanged += new System.EventHandler(this.imagePathTextBox_TextChanged);
             this.imagePathTextBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.imagePathTextBox_DragDrop);
             this.imagePathTextBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.imagePathTextBox_DragEnter);
@@ -107,7 +109,7 @@
             this.keywordsTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.keywordsTextBox.Name = "keywordsTextBox";
             this.keywordsTextBox.Size = new System.Drawing.Size(247, 30);
-            this.keywordsTextBox.TabIndex = 5;
+            this.keywordsTextBox.TabIndex = 6;
             this.keywordsTextBox.Enter += new System.EventHandler(this.keywordsTextBox_Enter);
             this.keywordsTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keywordsTextBox_KeyPress);
             // 
@@ -120,7 +122,7 @@
             this.imageDialogeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imageDialogeButton.Name = "imageDialogeButton";
             this.imageDialogeButton.Size = new System.Drawing.Size(21, 34);
-            this.imageDialogeButton.TabIndex = 4;
+            this.imageDialogeButton.TabIndex = 5;
             this.imageDialogeButton.Text = "⋮";
             this.imageDialogeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.imageToolTip.SetToolTip(this.imageDialogeButton, "Open the file picker for you to select your image file.");
@@ -139,9 +141,10 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(117, 46);
-            this.saveButton.TabIndex = 8;
+            this.saveButton.TabIndex = 9;
             this.saveButton.Text = "Save";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.imageToolTip.SetToolTip(this.saveButton, "Last");
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             this.saveButton.MouseEnter += new System.EventHandler(this.saveButton_MouseEnter);
@@ -175,7 +178,7 @@
             this.discardButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.discardButton.Name = "discardButton";
             this.discardButton.Size = new System.Drawing.Size(201, 46);
-            this.discardButton.TabIndex = 7;
+            this.discardButton.TabIndex = 8;
             this.discardButton.Text = "Discard";
             this.discardButton.UseVisualStyleBackColor = false;
             this.discardButton.Click += new System.EventHandler(this.DiscardButton);
@@ -257,7 +260,7 @@
             this.imageURLTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imageURLTextBox.Name = "imageURLTextBox";
             this.imageURLTextBox.Size = new System.Drawing.Size(247, 30);
-            this.imageURLTextBox.TabIndex = 6;
+            this.imageURLTextBox.TabIndex = 7;
             // 
             // label1
             // 
@@ -270,12 +273,40 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Image URL";
             // 
+            // lastButton
+            // 
+            this.lastButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lastButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lastButton.Location = new System.Drawing.Point(691, 21);
+            this.lastButton.Name = "lastButton";
+            this.lastButton.Size = new System.Drawing.Size(44, 40);
+            this.lastButton.TabIndex = 2;
+            this.lastButton.Text = "🢀";
+            this.lastButton.UseVisualStyleBackColor = true;
+            this.lastButton.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // nextButton
+            // 
+            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nextButton.Location = new System.Drawing.Point(741, 21);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(44, 40);
+            this.nextButton.TabIndex = 3;
+            this.nextButton.Text = "🢂";
+            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            // 
             // addDataWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(24)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nextButton);
+            this.Controls.Add(this.lastButton);
             this.Controls.Add(this.imagePathTextBox);
             this.Controls.Add(this.keywordsTextBox);
             this.Controls.Add(this.imageURLTextBox);
@@ -323,5 +354,7 @@
         private System.Windows.Forms.Label underline;
         private System.Windows.Forms.TextBox imageURLTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button lastButton;
+        private System.Windows.Forms.Button nextButton;
     }
 }

@@ -104,6 +104,7 @@
             this.Text = "Image Results";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
             this.Load += new System.EventHandler(this.Form3_Load);
+            this.Scroll += new System.Windows.Forms.ScrollEventHandler(this.Form3_Scroll);
             this.ResumeLayout(false);
             this.PerformLayout();
 

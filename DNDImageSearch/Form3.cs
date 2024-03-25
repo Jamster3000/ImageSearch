@@ -182,5 +182,15 @@ namespace imageSearch
         {
             (new Form5(keywords)).Show(); this.Hide();
         }
+
+        private void Form3_Scroll(object sender, ScrollEventArgs e)
+        {
+            Console.WriteLine(e.NewValue);
+        }
     }
 }
+
+
+//setting a lazy load for 50 images
+// 12 images (3x4) == 650 on the scrollbar
+// so to load 50 images at a time the scrollbar would equal 2,708.333333333334
