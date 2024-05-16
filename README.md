@@ -1,6 +1,6 @@
 
 
-![searchMagnifyingGlass](https://github.com/Jamster3000/ImageSearch/assets/148760154/b062c4b1-6369-4e42-9b23-ef6411e04b77)
+![searchMagnifyingGlass]([https://github.com/Jamster3000/ImageSearch/assets/148760154/b062c4b1-6369-4e42-9b23-ef6411e04b77](https://github.com/Jamster3000/ImageSearch/releases/tag/v2.0.0))
 
 This is a desktop application using c# programming language along with windows forms. 
 This is to search for images by a database of keywords. It also has an option to add to images and keywords linked to each one and preview the selected image before saving it to the database.
